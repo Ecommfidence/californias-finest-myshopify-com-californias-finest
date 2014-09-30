@@ -1,0 +1,8 @@
+<div class="sb-wrapper">
+  <div class="sb-title">Tags cloud</div>
+  <ul ng-controller="tagCtrl" class="list-inline sb-content sb-tags">
+    <li ng-repeat="tag in tags">
+      <a title="Search to articles containing {{tag.title}}" href="#">{{tag.title}}</a>
+    </li>
+  </ul>
+</div>

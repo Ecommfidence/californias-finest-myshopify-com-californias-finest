@@ -1,0 +1,178 @@
+  <!-- Header -->
+  <header id="top" class="fadeInDownBig clearfix">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-24 col-md-24 col-sm-24">
+        <ul class="list-unstyled top-left">
+          <li class="top-logo pull-left">
+            <a id="site-title" href="/" title="californias Finest">
+              <img class="img-responsive" src="#">
+            </a>
+          </li>
+          <li class="top-navigation pull-right">
+            <nav class="navbar" role="navigation">
+              <div class="clearfix">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle main navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="is-mobile visible-xs">
+                  <ul class="list-inline">
+                    <li class="is-mobile-menu">
+                      <div class="btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar-group">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </span>
+                      </div>
+                    </li>
+                    <li class="is-mobile-login">
+                      <div class="btn-group">
+                        <div class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-user"></i>
+                        </div>
+                        <ul class="customer dropdown-menu">
+                        {% if customer %}
+                            <li class="login">
+                                <a href="/account">Hello, {{ customer.first_name }}!</a>
+                            </li>
+                            <li>
+                                {{ 'Log out' | customer_logout_link }}
+                            </li>
+                            {% else %}
+                          <li class="logout">
+                            <a href="/account/login">Log in</a>
+                          </li>
+                          <li class="account last">
+                            <a href="/account/register">Register</a>
+                          </li>
+                        {% endif %}
+
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="is-mobile-cart">
+                      <a href="/cart"><i class="fa fa-shopping-cart"></i></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav hoverMenuWrapper">
+                    <li class="">
+                      <a href="/pages/about-us">
+                        <span>About</span>
+                      </a>
+                    </li>
+                   
+                    <li class="">
+                      <a href="/blogs/News">
+                        <span>Blog & Press</span>
+                      </a>
+                    </li>
+                    <li class="hidden-xs hidden-md hidden-lg">
+                      <a href="/search">
+                        <span>Search</span>
+                      </a>
+                    </li>
+                    <li class="top-search hidden-xs">
+                      <form id="header-search" class="search-form" action="/search" method="get" role="search">
+                        <button type="submit" class="search-submit" title="Search">
+                          <i class="fa fa-search"></i>
+                        </button>
+                        <input type="text" class="input-block-level" name="q" value="" accesskey="4" autocomplete="off" id="search" placeholder="SEARCH...">
+                      </form>
+                    </li>
+                    <li class="umbrella pos-relative hidden-xs">
+                      <div id="umbrella" class="list-inline unmargin">
+                        <div class="cart-link">
+                          <a href="/cart" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
+                            <i class="sub-dropdown1"></i>
+                            <i class="sub-dropdown"></i>
+                            <div class="num-items-in-cart">
+                              <span class="icon">
+                                <i class="fa fa-shopping-cart"></i>
+                              </span>
+                              <span class="my-cart black"><span class="number number-line">({{ cart.item_count }})</span></span>
+                            </div>
+                          </a>
+                          <div id="cart-info" class="dropdown-menu">
+                            <div class="cart-heading">
+                              <a href="/cart">Shopping Cart</a>
+                            </div>
+                          {% if cart.item_count > 0 %}
+                            <div id="cart-content">
+                              <div class="items">
+                              {% for item in cart.items %}
+                                <div class="row">
+
+                                  <div class="col-md-11 cart-left">
+                                     <a class="remove-from-cart-button cart-close letters-white inline-block dark-gray-bg" href="/cart/change?line={{ forloop.index }}&quantity=0"
+                                      <i class="fa fa-times" title="Remove"></i>
+                                    </a>
+                                    <a class="cart-image" href="{{item.product.url | within: collections.all}}">
+                                      <img class="img-responsive" src="{{ item.product.featured_image.src | product_img_url: 'medium' }}" alt="">
+                                    </a>
+                                  </div>
+                                  <div class="col-md-13 cart-right">
+                                    <div class="cart-title">
+                                      <a href="{{item.product.url | within: collections.all}}">{{item.title}}
+                                        <i class="fa fa-caret-right"></i>
+                                      </a>
+                                    </div>
+                                    <div class="cart-price">{{item.quantity}}<span class="x"> x </span><span class="money">{{item.price | money}}</span></div>
+                                  </div>
+                                </div>
+                              {% endfor %}
+                              </div>
+                              <div class="last">
+                                <div class="cart-left">Cart Total</div>
+                                <div class="cart-right">
+                                  <span class="money">{{ cart.total_price | money }}</span>
+                                </div>
+                              </div>
+                              <div class="action">
+                                <a href="/checkout" class="checkout-btn btn">Checkout</a>
+                              </div>
+                            </div>
+                            {% else %}
+                            <div id="cart-content">
+                              <div class="items">
+
+                                <h2 class="text-center">You don't have any items in your cart!</h2>
+
+                              </div>
+                            </div>
+
+                          {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </li>
+          <li class="top-search hidden-sm hidden-md hidden-lg">
+            <form id="header-search" class="search-form" action="/search" method="get" role="search">
+              <button type="submit" class="search-submit" title="Search">
+                <i class="fa fa-search"></i>
+              </button>
+              <input type="text" class="input-block-level" name="q" value="" accesskey="4" autocomplete="off" id="search" placeholder="Search...">
+            </form>
+          </li>
+
+
+        </ul>
+      </div>
+
+<!--       {% include 'cart-dropdown' %} -->
+
+    </div>
+    </div>
+  </header>

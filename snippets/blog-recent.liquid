@@ -1,0 +1,27 @@
+            <div class="row-fluid sb-wrapper first">
+              <div id="josephin"><h1 id="page-title">Recent articles</h1></div>
+              <div class="blogs sb-content">
+              {% for article in blog.articles %}
+                {% if article.tags contains 'latest' %}
+                    <!-- display none -->
+                    <div class="blogs-item">
+                  <div class="title-6">
+                    <a href="{{article.url}}">
+                      <i class="fa fa-caret-right"></i>
+                      {{article.title}}
+                    </a>
+                  </div>
+                  <div class="intro">{{ article.content | strip_html | truncate: 150 | downcase }}</div>
+                  <ul class="post list-inline">
+                    <li class="date">{{ article.published_at | date: '%a, %B %d %Y' }}</li>
+                    <li class="comment">
+                      <a href="{{article.url}}#disqus_thread">
+                        0 Comments
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>

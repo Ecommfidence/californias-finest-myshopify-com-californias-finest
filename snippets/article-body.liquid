@@ -1,0 +1,37 @@
+<div id="col-main" class="blog article-page col-content col-sm-18">
+  <div id="josephin">
+    <h1 id="page-title">
+      <i class="fa fa-caret-right"></i>
+      {{ article.title }}
+    </h1>
+  </div>
+  <div class="article">
+    <article class="blogs-item">
+      <div class="intro">
+        <p>
+          <img src="{{article.excerpt}}" class="img-responsive">
+        </p>
+        <div>{{article.content}}</div>
+      </div>
+      <ul class="post list-inline">
+        <li class="date">{{ article.published_at | date: '%a, %B %d %Y' }}</li>
+        <li class="author">POST BY: <span>Blaine Bowen</span></li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- DISQUS -->
+        <div id="disqus_thread"></div>
+</div>
+
+<div id="collection-btm" class="container">
+  <div class="row">
+  <div class="collection-border"></div>
+    <div class="col-md-24">
+      <section class="news">
+      {% include 'newsletter' %}
+      </section>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

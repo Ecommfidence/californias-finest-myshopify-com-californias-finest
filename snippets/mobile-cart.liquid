@@ -1,0 +1,105 @@
+        <section class="row content visible-xs">
+          <div id="col-main" class="col-md-24 cart-page content">
+            <div id="page-header">
+              <h1 id="page-title">Shopping Cart</h1>
+            </div>
+            <form action="./cart.html" method="post" id="cartform" class="clearfix">
+              <div class="row-fluid">
+                <div class="wrap-table">
+                  <table class="cart-items haft-border">
+                    <colgroup>
+                      <col class="checkout-image">
+                      <col class="checkout-info">
+                      <col class="checkout-price">
+                      <col class="checkout-quantity">
+                      <col class="checkout-totals">
+                      <col class="checkout-delete">
+                    </colgroup>
+
+                    <tbody>
+                       {% for item in cart.items %}
+                     <thead>   
+                      <tr class="top-labels">
+                        <th>Product name</th>
+                      </tr>
+                    </thead>
+
+                      <tr class="item suspendisse-tortor-lacus">
+                        <td class="title">
+                          <ul class="list-inline">
+                            <li class="image">
+                              <a href="{{item.product.url | within: collections.all}}">
+                                <img src="{{ item.product.featured_image.src | product_img_url: 'small' }}" alt="{{item.title}}">
+                              </a>
+                            </li>
+                            <li class="link">
+                              <a href="{{item.product.url | within: collections.all}}">
+                                <span class="block">{{item.title}}<i class="fa fa-caret-right"></i></span>
+                              </a>
+                            </li>
+                            <li class="link">Price: <br><span class="money">{{item.price | money}}</span></li>
+                            <li class="pull-right">Remove <button class="btn-7 btooltip" type="button" onclick="window.location='#'" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove"><a href="/cart/change?line={{ forloop.index }}&quantity=0"><i class="fa fa-times"></i></a></button></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <thead>
+                        <tr>
+                            <th>Quantity</th>
+                        </tr>
+                     </thead>
+                      <tr>
+                        <td>
+                          <input class="form-control input-1" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-min="" data-max="0" title="Qty" maxlength="12">
+                        </td>
+                      </tr>
+                      <tr class="bottom-summary">
+
+                        <td class="update-quantities"><button id="update-cart" class="btn btn-4" type="submit" name="update" value="Update cart" >Update Qty</button></td>
+                      </tr>
+                    <thead>
+                      <tr>
+                        <th>SubTotal</th>
+                      </tr>
+                    </thead>
+                      <tr>
+                        <td class="total title-1"><span class="money">{{ item.line_price | money }}</span></td>
+                      </tr>
+                      {% endfor %}
+                    <thead>
+                      <tr>
+                        <th>Cart Total</th>
+                      </tr>
+                    </thead>                      
+                      <tr>
+                      
+                        <td class="subtotal title-1"><span class="money">{{cart.total_price | money}}</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div id="checkout-proceed" class="last1 text-center">
+                  <button class="btn btn-3" type="submit" name="checkout" value="Check out">Proceed to Checkout</button>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div id="checkout-addnote" class="col-xs-24 last">
+                  <div class="wrapper-title">
+                    <span class="title-3">Add a note for the seller</span>
+                    <span class="line"></span>
+                  </div>
+                  <textarea id="note" rows="5" class="form-control" name="note">{{ cart.note }}</textarea>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col-xs-24 text-center">
+                    <a href="/collections" class="btn btn-2 large">Continue Shopping</a> <br>            
+              </div>
+            </div>
+          </div>
+        </section>
+        <br>

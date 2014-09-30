@@ -1,0 +1,70 @@
+      {% if page.handle == 'contact' %}
+      <div id="top-others">
+      {% else %}
+      <div id="top-other">
+      {% endif %}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-16 col-sm-12 text-left">
+              <ul id="messages" class="list-inline">
+                <li>
+                  <img src="{{'zigzag.png' | asset_url}}">Free shipping over $200.00<img src="{{'zigzag.png' | asset_url}}">
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-8 col-sm-12 text-right hidden-xs">
+              <ul id="accounts" class="list-inline">
+
+                {% if customer %}
+                <li class="login">
+                    <a href="/account">Hello, {{ customer.first_name }}!</a>
+                    <span class="padding-left10">{{ 'Log Out' | customer_logout_link }}</span>
+                </li>
+                {% else %}
+                <li class="login">
+                <span id="loginButton" class="dropdown-toggle" data-toggle="dropdown">
+                    Login
+                    <i class="sub-dropdown1"></i>
+                    <i class="sub-dropdown"></i>
+                  </span>
+                  <div id="loginBox" class="dropdown-menu text-left">
+                    {% form 'customer_login' %}
+                      {{ form.errors | default_errors }}
+                    <div id="customer_login" accept-charset="UTF-8">
+                      <div id="bodyBox">
+                        <ul class="control-container customer-accounts list-unstyled">
+                          <li class="clearfix">
+                            <label for="customer_email_box" class="control-label">Email Address <span class="req">*</span></label>
+                            <input type="email" value="" name="customer[email]" id="customer_email"  size="30" class="form-control" title="Username or Email (Required)"/>
+                          </li>
+                          <li class="clearfix">
+                            <label for="customer_password_box" class="control-label">Password <span class="req">*</span></label>
+                            <input type="password" value="" name="customer[password]" id="customer_password" size="16" required  class="form-control password" title="Password (Required)"/>
+                          </li>
+                          <li class="clearfix last1">
+                              <input name="submit" value="Sign In" type="submit" value="Login" class="btn" />
+                          </li>
+                          <li class="clearfix">
+                            <a href="/pages/forgot-pass">Forgot Password?</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                      {% endform %}
+                  </div>
+
+                </li>
+
+                <li>or</li>
+                <li class="register">
+                  <a href="/account/register" id="customer_register_link">Create an Account</a>
+                </li>
+
+                {% endif %}
+
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>

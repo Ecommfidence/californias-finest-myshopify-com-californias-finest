@@ -1,0 +1,149 @@
+{% paginate collection.products by 12 %}
+<div id="content" class="container clearfix">
+        <section id="{{collection.handle}}-banner" class="collection-banner">
+          <h1>{{collection.title}}</h1>
+        </section>
+
+        <br>
+        <div>{{collection.description}}</div>
+        <br>
+        <section class="row content">
+              {% include 'item-sidebar' %}
+              {% include 'mobile-sidebar' %}
+          <div id="col-main" class="collection collection-page col-content col-sm-18">
+            <div id="page-header">
+              <h1 id="page-title">{{collection.title}}</h1>
+            </div>
+            <div class="collection-warper clearfix">
+            </div>
+            <div id="options" class="container-nav clearfix">
+
+              <p class="pagination-num-showing hidden-xs">
+                  {{ paginate.current_offset | plus: 1 }}-{% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }}
+              </p>
+              <ul class="list-inline text-right">
+                <li class="grid_list">
+                  <ul class="unstyled unmargin-bottom option-set hidden-sm hidden-xs" data-option-key="layoutMode">
+                    <li data-option-value="straightDown" id="goList" class="goAction btooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="List">
+                      <i class="fa fa-th-list"></i>
+                    </li>
+                    <li data-option-value="fitRows" id="goGrid" class="goAction btooltip active" data-toggle="tooltip" data-placement="top" title="" data-original-title="Grid">
+                      <i class="fa fa-th-large"></i>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sortBy">
+                  <strong class="title-3">sort by</strong>
+
+                    <select id="sort-by">
+                        <option class="sort" value="manual">Featured</option>
+                        <option class="sort" value="price-ascending">Price: Low to High</option>
+                        <option class="sort" value="price-descending">Price: High to Low</option>
+                        <option class="sort" value="title-ascending">A-Z</option>
+                        <option class="sort" value="title-descending">Z-A</option>
+                        <option class="sort" value="created-ascending">Oldest to Newest</option>
+                        <option class="sort" value="created-descending">Newest to Oldest</option>
+                        <option class="sort" value="best-selling">Best Selling</option>
+                      </select>
+<!--                   <div id="sortButtonWarper" class="dropdown-toggle" data-toggle="dropdown">
+                    <button id="sortButton" class="btn-6">
+                      <span class="name">Original</span><i class="fa fa-caret-down"></i>
+                    </button>
+                    <i class="sub-dropdown1"></i>
+                    <i class="sub-dropdown"></i>
+                  </div> -->
+
+                </li>
+              </ul>
+            </div>
+            <div id="sandBox-wrapper">
+              <ul id="sandBox" class="list-unstyled row">
+              {% for product in collection.products %}
+                <li class="element first">
+                    <ul class="row-container list-unstyled clearfix">
+
+                      <div class="row-left row-eq">
+                        <a href="{{product.url}}" class="hoverBorder">
+                          <span class="hoverBorderWrapper">
+                            <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="image-fly img-responsive" alt="{{product.title}}">
+                          </span>
+                          <div class="product-ajax-cart hidden-xs hidden-sm">
+                            <span class="overlay_mask"></span>
+  <!--                                   <a href="#quick-shop-modal">
+                                      Quick Shop
+                                      <div class="product-json" style="display: none;">{{ product | json }}</div>
+                                    </a> -->
+
+<!--
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"></button>
+                           -->
+
+                          </div>
+                        </a>
+                      </div>
+
+                      <div class="row-right text-left parent-fly animMix">
+                        <a class="title-5" href="{{product.url}}">{{product.title}}<i class="fa fa-caret-right"></i></a>
+                        <!-- <p class="hidden-grid product-border">
+                          {{product.content | strip_html | truncate:50}}
+                        </p>
+                        <p class="hidden-list">
+                          {{product.content | strip_html | truncate:250}}
+                        </p> -->
+                        <div class="product-price">
+                          <span class="price">
+                            <span class="black money">{{product.price | money}}</span>
+                          </span>
+                        </div>
+                        <form method="post" action="/cart/add">
+                          <input name="id" type="hidden" value="{{ product.variants.first.id }}" />
+                          <input name="quantity" style="display:inline; width: 40px" type="text" value="1" class="hidden"/>
+                        <button type="submit" title="Add to Cart" class="btn add-to-cart btn-addtocart btn-productaction">
+                          Add to Cart <span class="fa fa-shopping-cart"></span>
+                        </button>
+                      </form>
+                      </div>
+                    </ul>
+                </li>
+
+              {% endfor %}
+
+              </ul>
+
+
+            </div>
+            <div class="pagination title-3 clearfix">
+            <br>
+              <!-- <ul class="list-inline">
+                <li class="prev"><a class="disabled" href="javascript:"><i class="fa fa-caret-left"></i>Previous</a></li>
+                <li class="active"><a href="javascript:">1</a></li>
+                <li><a href="#">2</a></li>
+                <li class="next"><a href="#">Next<i class="fa fa-caret-right"></i></a></li>
+              </ul> -->
+              <div id="pagination" class="text-center">
+  {{ paginate | default_pagination }}
+  </div>
+            </div>
+{% endpaginate %}
+
+
+          </div>
+
+        </section>
+      </div>
+
+
+<div id="collection-btm" class="container">
+  <div class="row">
+  <div class="collection-border"></div>
+    <div class="col-md-24">
+      <section class="news">
+        {% include 'newsletter' %}
+      </section>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+
+

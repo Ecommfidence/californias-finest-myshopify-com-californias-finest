@@ -1,0 +1,10 @@
+<div id="breadcrumb" class="row breadcrumb">
+	<div class="col-md-24" itemprop="breadcrumb">
+		<a href="/" class="homepage-link" title="Back to the frontpage">Home</a>
+		<i class="angle-right">/</i>
+		<a href="/blogs/News" class="homepage-link">Blog & News</a>
+		{% if template == "article" %}
+		<i class="angle-right">/</i><span class="page-title">{{article.title}}</span>
+		{% endif %}
+	</div>
+</div>

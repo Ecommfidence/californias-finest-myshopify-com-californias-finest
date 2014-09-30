@@ -1,0 +1,55 @@
+          <div id="prodcoll" class="col-sm-6 sidebar hidden-xs">
+            <div class="row-fluid sb-wrapper first">
+              <div class="sb-title">Product Categories</div>
+              <ul class="list-unstyled sb-content list-styled">
+      {% for link in linklists.collections.links %}
+                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% endfor %} 
+
+              </ul>
+            </div>
+
+{% if template == 'list-collections' %}
+
+{% elsif template == 'product' %}
+
+{% else %}
+          <div class="row-fluid sb-wrapper">
+            <div class="sb-title">Product Types</div>
+              <ul class="list-unstyled sb-content list-styled">
+                  <li{% unless current_tags %} class="active"{% endunless %}>
+                    {% if collection.handle %}
+                    <a href="/collections/{{ collection.handle }}{% if collection.sort_by %}?sort_by={{ collection.sort_by }}{% endif %}">All</a>
+                    {% elsif collection.current_type %}
+                    <a href="{{ collection.current_type | url_for_type | sort_by: collection.sort_by }}">All</a>
+                    {% elsif collection.current_vendor %}
+                    <a href="{{ collection.current_vendor | url_for_vendor | sort_by: collection.sort_by }}">All</a>
+                    {% endif %}
+                  </li>
+                  {% for tag in collection.all_tags %}
+                  {% if current_tags contains tag %}
+                  <li class="active">
+                    {{ tag | link_to_remove_tag: tag }}
+                  </li>
+                  {% else %}
+                  <li>
+                    {{ tag | link_to_tag: tag }}
+                  </li>
+                  {% endif %}
+                  {% endfor %} 
+              </ul>
+          </div>
+{% endif %}
+
+<!--             <div class="row-fluid sb-wrapper" ng-controller="collectionCtrl">
+              <div class="sb-title">Product Types</div>
+              <ul class="list-unstyled sb-content list-styled">
+                <li ng-repeat="type in types">
+                {%raw%}
+                  <a href="/search?q={{type.name}}&type=product" title="{{type.name}}">{{type.name}}</a>
+                {% endraw %}
+                </li>
+              </ul>
+            </div> -->
+              {% include 'blog-side-imgs' %}
+          </div>

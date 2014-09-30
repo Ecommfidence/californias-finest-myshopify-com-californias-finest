@@ -1,0 +1,141 @@
+<div id="content" class="container clearfix">
+        <section id="{{product.collections[0].handle}}-banner" class="collection-banner">
+          <h1>{{product.collections[0].title}}</h1>
+        </section>
+        <br>
+        <section class="row content">
+              {% include 'item-sidebar' %}
+          <div id="col-main" class="collection collection-page col-content col-sm-18">
+            <div id="page-header">
+              <h1 id="page-title">{{product.title}}</h1>
+            </div>
+
+            <!-- Newer -->
+
+            <div id="product" class="content row clearfix">
+                <div id="product-image" class="col-md-10 product-image">
+                  <div class="product-image-wrapper">
+
+                    <a target="_blank" href="{{product.featured_image | product_img_url: 'original'}}" alt="" class="main-image elevatezoom fancybox">
+                      <img itemprop="image" class="img-zoom img-responsive image-fly" src="{{product.featured_image | product_img_url: 'original'}}" data-zoom-image="{{product.featured_image | product_img_url: 'original'}}" alt="" />
+                      <span class="main-image-bg"></span>
+                    </a>
+                    <div id="gallery_main" class="product-image-thumb">
+                      {% if product.images.size > 1%}
+                      {% for image in product.images %}
+                      <a target="_blank" class="image-thumb" data-image="{{image | product_img_url: 'original'}}" data-zoom-image="{{image | product_img_url: 'original'}}" href="{{image | product_img_url: 'original'}}" alt="">
+                        <img class="img-thumbnail" src="{{image | product_img_url: 'original'}}" alt="" />
+                      </a>
+                      {% endfor %}
+                      {% endif %}
+
+                    </div>
+                  </div>
+                </div>
+                <div id="product-information" class="col-md-14 product-information">
+                  <div id="product-header" class="clearfix">
+                    <div class="relative">
+                      <ul class="list-unstyled">
+                        <li class="vendor">
+                          <span> {% if product.tags.size > 0 %}Product Category: {{product.tags | limit:1}}{%else%}{%endif%}</span>
+
+                        </li>
+<!--                         <li class="type">
+                          <span>Product Type: {{product.type}}</span>
+                        </li> -->
+                      </ul>
+                    </div>
+                    <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                      <meta itemprop="priceCurrency" content="USD">
+
+
+                      <form action="/cart/add" method="post" class="variants" id="product-actions">
+                        <div id="product-actions-175388197" class="options clearfix">
+                          <div class="variants-wrapper clearfix">
+                            <div {% if hide_default_title %} style="display:none"{% endif %} class="selector-wrapper clearfix">
+                              <label for="product-select-175388197-option-0">Styles</label>
+                              <div class="wrapper">
+                                <select class="single-option-selector col-md-12" name="id" id="product-select-175388197-option-0" style="z-index:1000;position:absolute;opacity:0;font-size:13px">
+
+                                  {% for variant in product.variants %}
+                                  <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                                  {% endfor %}
+                                </select>
+                                <button type="button" class="custom-style-select-box btn-block changed" style="display:block;overflow:hidden"><span class="custom-style-select-box-inner" style="width:288px;display:inline-block">Styles</span></button>
+                                <i class="fa fa-caret-down"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="quantity-wrapper clearfix">
+                            <label class="wrapper-title">Quantity</label>
+                            <div class="wrapper pos-relative">
+
+
+                              <input id="quantity" type="text" name="quantity" value="1" class="btn-block item-quantity">
+                              <span class="qty-group">
+                                <span class="qty-wrapper">
+                                  <span class="qty-up btooltip" data-toggle="tooltip" data-placement="top" title="" data-src="#quantity" data-original-title="Increase">
+                                    <i class="fa fa-plus"></i>
+                                  </span>
+                                  <span class="qty-down btooltip" data-toggle="tooltip" data-placement="top" title="" data-src="#quantity" data-original-title="Decrease">
+                                    <i class="fa fa-minus"></i>
+                                  </span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                          <div id="purchase-175388197">
+                            <div class="detail-price" itemprop="price"><span class="price"><span class="black money">{{ product.price_min | money }}{% if product.price_min < product.compare_at_price_min %} <del class="red">{{ product.compare_at_price_min | money }}</del>{% endif %}</span></span></div>
+                          </div>
+
+                          <div class="others-bottom">
+                            {% unless product.available %}
+                              <p>Sold Out</p>
+                            {% else %}
+                            <button id="add-to-cart" class="btn add-to-cart" data-parent=".product-information" type="submit" name="add"><i class="fa fa-plus"></i>Add to Cart</button>
+                            {% endunless %}
+                          </div>
+
+                          <div class="sharing clearfix">
+
+                            <!-- AddThis Button BEGIN -->
+                            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=xa-52a93d3e6cae604d"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52a93d3e6cae604d"></script>
+                            <!-- AddThis Button END -->
+                              <br><br>
+
+                              {% include 'social-shares' %}
+
+
+                           
+
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="description" itemprop="description">
+                {{ product.description }}
+              </div>
+
+              {% include 'related-products' %}
+
+
+            </div>
+          <!--end col-sm-18-->
+        </section>
+      </div>
+<div id="collection-btm" class="container">
+  <div class="row">
+  <div class="collection-border"></div>
+    <div class="col-md-24">
+      <section class="news">
+        {% include 'newsletter' %}
+      </section>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+

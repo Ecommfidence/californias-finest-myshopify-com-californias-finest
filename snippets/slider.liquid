@@ -1,0 +1,174 @@
+      <div class="container">
+        <div id="home-slider-wrapper">
+          <div id="home-slider" class="responsive-slider hideControls">
+            <div class="slides" data-group="slides">
+              <ul>
+                <li>
+                  <div class="slide-body" data-group="slide">
+
+      {% if settings.slider_file == "image" %}
+                    <a href="{{settings.slide1_btnlink}}">
+                    <img src="{{settings.slidercms1}}" alt="{{ shop.name }}" />
+                     </a>
+      {% else %}
+      {% endif %}
+                  
+
+                      <div class="caption header">
+                        <div class="caption-wrapper">
+                          <div class="not-animated" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                            <h2>
+                              <span class="caption-content" style="color:#323232">
+                              {% if settings.slide1_cap1 != '' %}
+                                <span>{{settings.slide1_cap1}}</span>
+                              {%else%}
+                              {%endif%}
+                              </span>
+                            </h2>
+                          </div>
+                          <div class="caption sub not-animated" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300">
+                            <div class="caption-content" style="color:#323232">
+                            {% if settings.slide1_cap2 != '' %}
+                            {{ settings.slide1_cap2 }}
+                            {% else %}
+                            {%endif%}
+                            </div>
+                            {% if settings.slide1_btn != '' %}
+                            <a class="btn" href="{{settings.slide1_btnlink}}">{{settings.slide1_btntxt}}<i class="fa fa-caret-right"></i></a>
+                            {% else %}
+                            {%endif%}
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="slide-body" data-group="slide">
+      {% if settings.slider_file2 == "image" %}
+                     <a href="{{settings.slide2_btnlink}}">
+          				<img src="{{settings.slidercms2}}" alt="{{ shop.name }}" />
+                    </a>
+      {% else %}
+      {% endif %}
+                      <div class="caption header">
+                        <div class="caption-wrapper">
+                          <div class="not-animated" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                            <h2>
+                              <span class="caption-content" style="color:#323232">
+                              {% if settings.slide2_cap1 != '' %}
+                                <span>{{settings.slide2_cap1}}</span>
+                              {%else%}
+                              {%endif%}
+                              </span>
+                            </h2>
+                          </div>
+                          <div class="caption sub not-animated" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300">
+                            <div class="caption-content" style="color:#323232">
+                            {% if settings.slide2_cap2 != '' %}
+                            {{ settings.slide2_cap2 }}
+                            {% else %}
+                            {%endif%}
+                            </div>
+                            {% if settings.slide2_btn != '' %}
+                            <a class="btn" href="{{settings.slide2_btnlink}}">{{settings.slide2_btntxt}}<i class="fa fa-caret-right"></i></a>
+                            {% else %}
+                            {%endif%}
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="slide-body" data-group="slide">
+                    <a href="{{settings.slide3_btnlink}}">
+      {% if settings.slider_file3 == "image" %}
+          <img src="{{settings.slidercms3}}" alt="{{ shop.name }}" />
+      {% else %}
+      {% endif %}
+                    </a>
+
+                      <div class="caption header">
+                        <div class="caption-wrapper">
+                          <div class="not-animated" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                            <h2>
+                              <span class="caption-content" style="color:#323232">
+                              {% if settings.slide3_cap1 != '' %}
+                                <span>{{settings.slide3_cap1}}</span>
+                              {%else%}
+                              {%endif%}
+                              </span>
+                            </h2>
+                          </div>
+                          <div class="caption sub not-animated" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300">
+                            <div class="caption-content" style="color:#323232">
+                            {% if settings.slide3_cap2 != '' %}
+                            {{ settings.slide3_cap2 }}
+                            {% else %}
+                            {%endif%}
+                            </div>
+                            {% if settings.slide3_btn != '' %}
+                            <a class="btn" href="{{settings.slide3_btnlink}}">{{settings.slide3_btntxt}}<i class="fa fa-caret-right"></i></a>
+                            {% else %}
+                            {%endif%}
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </li>
+                  <li>
+                  <div class="slide-body" data-group="slide">
+                    <a href="{{settings.slide4_btnlink}}">
+      {% if settings.slider_file4 == "image" %}
+          <img src="{{settings.slidercms4}}" alt="{{ shop.name }}" />
+      {% else %}
+      {% endif %}
+                    </a>
+
+                      <div class="caption header">
+                        <div class="caption-wrapper">
+                          <div class="not-animated" data-animate="slideAppearRightToLeft" data-delay="500" data-length="300">
+                            <h2>
+                              <span class="caption-content" style="color:#323232">
+                              {% if settings.slide4_cap1 != '' %}
+                                <span>{{settings.slide4_cap1}}</span>
+                              {%else%}
+                              {%endif%}
+                              </span>
+                            </h2>
+                          </div>
+                          <div class="caption sub not-animated" data-animate="slideAppearRightToLeft" data-delay="800" data-length="300">
+                            <div class="caption-content" style="color:#323232">
+                            {% if settings.slide4_cap2 != '' %}
+                            {{ settings.slide4_cap2 }}
+                            {% else %}
+                            {%endif%}
+                            </div>
+                            {% if settings.slide4_btn != '' %}
+                            <a class="btn" href="{{settings.slide3_btnlink}}">{{settings.slide3_btntxt}}<i class="fa fa-caret-right"></i></a>
+                            {% else %}
+                            {%endif%}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+                
+              </ul>
+            </div>
+            <a class="slider-control left fa fa-caret-left s-prev" href="javascript:" data-jump="prev">
+              <span class="sub-control"></span>
+              <span class="btn-label hidden-xs">PREV</span>
+            </a>
+            <a class="slider-control right fa fa-caret-right s-next" href="javascript:" data-jump="next">
+              <span class="sub-control"></span>
+              <span class="btn-label hidden-xs">NEXT</span>
+            </a>
+            <div class="pages">
+              <a class="page" href="javascript:" data-jump-to="1">1</a>
+              <a class="page active" href="javascript:" data-jump-to="2">2</a>
+              <a class="page" href="javascript:" data-jump-to="3">3</a>
+              <a class="page" href="javascript:" data-jump-to="4">4</a>
+            </div>
+          </div>
+        </div>
+      </div>

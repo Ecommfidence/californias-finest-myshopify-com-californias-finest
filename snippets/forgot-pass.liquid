@@ -1,0 +1,18 @@
+<br><br>
+<div class="container">
+	<div id="recover-password" class="col-sm-24">
+      <h2>Reset Password</h2>
+      <p class="note">We will send you an email to reset your password.</p>
+
+      {% form 'recover_customer_password' %}
+      {{ form.errors | default_errors }}
+
+      <label for="email" class="label">Email Address</label>
+      <input type="email" value="" placeholder="Enter your email..." size="30" name="email" id="recover-email" class="form-control" />
+	<br>
+      <input class="btn" type="submit" value="Submit" />
+      <span class="note">or <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a></span>
+      {% endform %}
+    </div>
+</div>
+<br><br>

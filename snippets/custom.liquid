@@ -1,0 +1,57 @@
+<div id="custom-header"></div>
+<div id="content" class="container clearfix">
+
+    <section id="page-title" class="row content">
+        <div id="col-main" class="col-md-24 clearfix">
+            <div id="main-title">
+                <h1 class="blue font30 text-center">{{ page.title }}</h1>
+            </div>
+			<div class="col-md-6"></div>
+            <div class="col-md-12 padding-right40">
+                {% form 'contact' %}
+
+                {% if form.posted_successfully? %}
+                <div class="successForm feedback">
+                    <p>Thanks for contacting us! We'll get back to you as soon as possible.</p>
+                </div>
+                {% endif %}
+
+                {% if form.errors %}
+                <div class="errorForm feedback">
+                    <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+                    <p>Oops, sorry. We were unable to submit your inquiry because it contained {{ form.errors | size | pluralize: 'an error', 'a few errors' }}. Please correct the following and submit again:</p>
+                    {% for field in form.errors %}
+                    <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="contact-form">
+                    <input name="contact[type]" type="hidden" value="custom">
+                    <p  class="font14">{{page.content}}</p>
+                    <ul id="contact-form" class="row list-unstyled">
+                        <li>
+                            <label class="control-label" for="name">Your name </label>
+                            <input type="text" id="name" value="" class="form-control" name="contact[name]">
+                        </li>
+                        <li class="clearfix"></li>
+                        <li>
+                            <label class="control-label" for="email">Your email <span class="req">*</span></label>
+                            <input type="email" id="email" value="" class="form-control email" name="contact[email]">
+                        </li>
+                        <li class="clearfix"></li>
+                        <li>
+                            <label class="control-label" for="message">Your message <span class="req">*</span></label>
+                            <textarea id="message" rows="4" class="form-control" name="contact[body]"></textarea>
+                        </li>
+                        <li class="clearfix"></li>
+                        <li class="unpadding-top">
+                            <button type="submit" class="btn">Submit</button>
+                        </li>
+                    </ul>
+                </div>
+                {% endform %}
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,66 @@
+<div class="col-md-2 col-lg-2 hidden-sm hidden-xs">
+        <ul class="list-inline top-right ">
+          <li class="umbrella pos-relative">
+            <div id="umbrella" class="list-inline unmargin">
+              <div class="cart-link">
+                <a href="/cart" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
+                  <i class="sub-dropdown1"></i>
+                  <i class="sub-dropdown"></i>
+                  <div class="num-items-in-cart">
+                    <span class="icon">
+                      <i class="fa fa-shopping-cart"></i>
+                    </span>
+                    <span class="my-cart black"><span class="number">({{ cart.item_count }})</span></span>
+                  </div>
+                </a>
+                <div id="cart-info" class="dropdown-menu">
+                  <div class="cart-heading">
+                    <a href="/cart">Shopping Cart</a>
+                  </div>
+                {% if cart.item_count > 0 %}
+                  <div id="cart-content">
+                    <div class="items">
+                    {% for item in cart.items %}
+                      <div class="row">
+
+                        <div class="col-md-11 cart-left">
+                           <a class="remove-from-cart-button cart-close letters-white inline-block dark-gray-bg" href="/cart/change?line={{ forloop.index }}&quantity=0"
+                            <i class="fa fa-times" title="Remove"></i>
+                          </a>
+                          <a class="cart-image" href="{{item.product.url | within: collections.all}}">
+                            <img class="img-responsive" src="{{ item.product.featured_image.src | product_img_url: 'medium' }}" alt="">
+                          </a>
+                        </div>
+                        <div class="col-md-13 cart-right">
+                          <div class="cart-title">
+                            <a href="{{item.product.url | within: collections.all}}">{{item.title}}
+                              <i class="fa fa-caret-right"></i>
+                            </a>
+                          </div>
+                          <div class="cart-price">{{item.quantity}}<span class="x"> x </span><span class="money">{{item.price | money}}</span></div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                    </div>
+                    <div class="last">
+                      <div class="cart-left">Cart Total</div>
+                      <div class="cart-right">
+                        <span class="money">{{ cart.total_price | money }}</span>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <a href="/checkout" class="btn">Checkout</a>
+                    </div>
+                  </div>
+                  {% else %}
+                    <div class="cart-heading">
+                       You don't have any items in your cart!
+                    </div>
+
+                {% endif %}
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>

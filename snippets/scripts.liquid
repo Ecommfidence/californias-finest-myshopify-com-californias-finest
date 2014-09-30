@@ -1,0 +1,200 @@
+
+  
+  <script src="{{'bootstrap.min.3x.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'modernizr.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'application.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'cs.global.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'owl.carousel.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'jquery.fancybox-buttons.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'jquery.responsive-slider.min.js' | asset_url}}" type="text/javascript"></script>
+    <script src="{{'share.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'jquery.isotope.min.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'jquery.imagesloaded.min.js' | asset_url}}" type="text/javascript"></script>
+  <script src="{{'cs.script.js' | asset_url}}" type="text/javascript"></script>
+  
+
+  <script src="//oss.maxcdn.com/rrssb/1.6.0/js/rrssb.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blainebowen'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+            <script type="text/javascript">
+              
+              $(document).ready(function() {
+                
+                if ($.browser.msie && $.browser.version == 7){
+                  $(window).load(function() {
+                    var $container = $('#sandBox');
+                    
+                    $container.isotope({
+                      itemSelector : '.element',
+                      layoutMode : 'fitRows',
+                      getSortData : {
+                        name : function( $elem ) {
+                          return $elem.attr('data-alpha');
+                        },
+                        price : function( $elem ) {
+                          return $elem.attr('data-price');
+                        }
+                      }
+                    });
+                    
+                    
+                    var $optionSets = $('#options .option-set'),
+                        $optionLinks = $optionSets.find('li');
+                    
+                    $optionLinks.click(function(){
+                      var $this = $(this);
+                      // don't proceed if already selected
+                      if ( $this.hasClass('selected') ) {
+                        return false;
+                      }
+                      
+                      var $direction = $(this).attr('data-order');
+                      var key1 = 'sortAscending',
+                          value1 = true;
+                      switch($direction){
+                        case 'asc':
+                          value1 = true;
+                          break;
+                          
+                        case 'desc':
+                          value1 = false;
+                          break;
+                      }
+                      
+                      var $optionSet = $this.parents('.option-set');
+                      $optionSet.find('.selected').removeClass('selected');
+                      $this.addClass('selected');
+                      
+                      // make option object dynamically, i.e. { filter: '.my-filter-class' }
+                      var options = {},
+                          key = $optionSet.attr('data-option-key'),
+                          value = $this.attr('data-option-value');
+                      // parse 'false' as false boolean
+                      value = value === 'false' ? false : value;
+                      options[ key ] = value;
+                      options[ key1 ] = value1;
+                      if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+                        // changes in layout modes need extra logic
+                        changeLayoutMode( $this, options )
+                      } else {
+                        // otherwise, apply new options
+                        $container.isotope( options );
+                      }
+                      
+                      return false;
+                    });
+                  });
+                }
+                else{
+                  $(window).load(function() {
+                    var $container = $('#sandBox');
+                    
+                    $container.isotope({
+                      itemSelector : '.element',
+                      layoutMode : 'fitRows',
+                      getSortData : {
+                        name : function( $elem ) {
+                          return $elem.attr('data-alpha');
+                        },
+                        price : function( $elem ) {
+                          return $elem.attr('data-price');
+                        }
+                      }
+                    });
+                    
+                    
+                    var $optionSets = $('#options .option-set'),
+                        $optionLinks = $optionSets.find('li');
+                    
+                    $optionLinks.click(function(){
+                      var $this = $(this);
+                      // don't proceed if already selected
+                      if ( $this.hasClass('selected') ) {
+                        return false;
+                      }
+                      
+                      var $direction = $(this).attr('data-order');
+                      var key1 = 'sortAscending',
+                          value1 = true;
+                      switch($direction){
+                        case 'asc':
+                          value1 = true;
+                          break;
+                          
+                        case 'desc':
+                          value1 = false;
+                          break;
+                      }
+                      
+                      var $optionSet = $this.parents('.option-set');
+                      $optionSet.find('.selected').removeClass('selected');
+                      $this.addClass('selected');
+                      
+                      // make option object dynamically, i.e. { filter: '.my-filter-class' }
+                      var options = {},
+                          key = $optionSet.attr('data-option-key'),
+                          value = $this.attr('data-option-value');
+                      // parse 'false' as false boolean
+                      value = value === 'false' ? false : value;
+                      options[ key ] = value;
+                      options[ key1 ] = value1;
+                      if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+                        // changes in layout modes need extra logic
+                        changeLayoutMode( $this, options )
+                      } else {
+                        // otherwise, apply new options
+                        $container.isotope( options );
+                      }
+                      
+                      return false;
+                    });
+                  });
+                }
+              });
+            </script>
+
+  <script>
+
+  (function(){
+  	$('.collection-image').height('234').width('240');
+  })();
+
+  </script>
+
+  <script>
+function goBack() {
+    window.history.back()
+}
+</script>
+
+  <script>
+Shopify.queryParams = {};
+if (location.search.length) {
+  for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+    aKeyValue = aCouples[i].split('=');
+    if (aKeyValue.length > 1) {
+      Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+    }
+  }
+}
+jQuery('#sort-by')
+  .val('{{ collection.sort_by | default: collection.default_sort_by  }}')
+  .bind('change', function() {
+    Shopify.queryParams.sort_by = $(this).val();
+    location.search = jQuery.param(Shopify.queryParams);
+  });
+</script>

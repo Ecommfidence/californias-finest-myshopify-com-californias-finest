@@ -1,0 +1,177 @@
+.search-form input[placeholder] {
+	font-family: 'Josefin Sans', sans-serif !important;
+	font-size: 13px;
+}
+.josefin {
+	font-family: 'Josefin Sans', sans-serif !important;
+}
+.raleway {
+	font-family: 'Raleway', sans-serif !important;
+}
+
+input[type="radio"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    -ms-appearance: checkbox;     /* not currently supported */
+    -o-appearance: checkbox;      /* not currently supported */
+}
+
+.high {height:40px;}
+
+.margin50 {
+	margin-left: 45%;
+}
+.padding-btm35 {
+	padding-bottom: 35px;
+}
+/*.row-eq {
+	vertical-align: bottom;
+	height: 200px;
+}
+.row-eq1 {
+	vertical-align: bottom;
+	height: 250px;
+}*/
+.quoted {
+	font-style: italic;
+	letter-spacing: .05em;
+	font-size: 28px;
+	font-weight: 500;
+}
+i.fa-quote-left, i.fa-quote-right {
+	color: #bea3d6 !important;
+}
+#contact-header {
+	background-image: url(../assets/contact-neck.jpg);
+	height: 131px;
+}
+#custom-header {
+	/* Change with custom header when it arrives */
+	background: url(http://i1370.photobucket.com/albums/ag251/anthroisphoto/Blaine%20Bowen/080714-BBJupdates/custom_zps762d9414.jpg~original) no-repeat;
+	height: 131px;
+ 	background-size: cover;
+}
+
+/*==========================*/
+/*    Collection Banners    */
+/*==========================*/
+
+#list-collections-banner {background-image: url(../assets/header_notext.jpg);}
+#gameday-swag-banner {background-image: url(../assets/header_05.jpg);}
+#pay-it-forward-collection-banner {background-image: url(../assets/header_02.jpg);}
+#bowen-fine-jewelry-collection-banner {background-image: url(../assets/header_03.jpg);}
+#new-arrivals-banner {background-image: url(../assets/header_01.jpg);}
+#gemstone-bracelets-banner {background-image: url(../assets/header_06.jpg);}
+#frontpage-banner {background-image: url(../assets/header_04.jpg);}
+#wanderlust-banner {background-image: url(../assets/header_07.jpg);}
+#sj-loves-b-banner {background-image: url(../assets/header_08.jpg);}
+#simply-gameday-apparel-banner{background-image: url('http://i1370.photobucket.com/albums/ag251/anthroisphoto/Blaine%20Bowen/080714-BBJupdates/gameday_header_zps80976555.jpg~original');}
+
+.collection-banner {
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.collection-banner h1 {
+	padding-top: 150px;
+	padding-bottom: 150px;
+	font-size: 50px;
+	font-weight: 500;
+	text-align: center;
+	color: white;
+	font-family: 'loveloblack' !important;
+}
+
+/*End Collection Banners*/
+.hvr-gray {
+	text-decoration: underline;
+}
+.border {
+	border: 3.5px solid #64ddfa;
+}
+.font25 {
+	font-size: 25px;
+}
+#footer #payments {
+	margin-top: 25px;
+}
+.account-user{ margin-right:60px; width:172px; font-size:14px;}
+.account-user p{margin:0;}
+.user-name{margin-bottom:20px;}
+.account-table{width: 728px;}
+.account-table table{width:100%; text-align:left;}
+.account-table td{padding-top:15px;}
+.account-table tbody, .last-row td, .account-user .status{padding-bottom:15px;}
+.account-table tfoot{text-align:right; border-top:1px solid #ccc;}
+.cart-headers{border-bottom:1px solid #ccc;}
+
+.btn-4 {
+	background-color: #bea3d6;
+	color: #ffffff;
+	border-color: #bea3d6;
+	font-size: 18px;
+	padding: 10px 5px 10px 5px;
+
+}
+.btn-4:hover,
+.btn-4:focus,
+.btn-4:active{
+  background-color: #ffffff;
+  color: #bea3d6;
+  border-color: #bea3d6;
+}
+span .number-line:hover {
+  text-decoration: underline!important;
+}
+#top nav.navbar .dropdown-menu a.checkout-btn {
+	color:white!important;
+}
+#top nav.navbar .dropdown-menu a.checkout-btn:hover {
+	color:black!important;
+}
+
+@media (min-width: 1200px) {
+	.row-eq {height:200px; overflow:hidden;}
+	.line-eq {height:20px;}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.row-eq {height:150px; overflow:hidden;}
+	.line-eq {height:30px;}
+}
+@media (max-width: 767px) and (min-width: 401px){
+	#top-other {padding-top: 65px;}
+}
+@media (max-width: 400px){
+	#top-other {padding-top: 75px;}
+}
+@media (max-width: 767px) and (min-width: 401px){
+	#top-others {
+		padding-top: 65px;
+		background-color:white!important;
+	}
+}
+@media (max-width: 400px){
+	#top-others {
+		padding-top: 100px;
+		background-color:white!important;
+	}
+}
+@media (max-width: 992px) and (min-width: 980px){
+	#top nav.navbar .nav > li > a {font-size: 10px;}
+}
+@media (max-width: 767px) {
+	#top nav.navbar .dropdown-menu {
+	background-color: #F8F8F8!important;
+	}
+	#top nav.navbar .dropdown-menu a:hover{
+	  color: #bea3d6;
+	  background-color: #F8F8F8!important;
+	}
+	.hoverMenuWrapper {
+		background-color: #F8F8F8!important;
+	}
+
+}
+
+

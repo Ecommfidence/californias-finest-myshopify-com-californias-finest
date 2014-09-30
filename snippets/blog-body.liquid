@@ -1,0 +1,45 @@
+<div id="col-main" class="blog blog-page col-content col-sm-18">
+  <div id="josephin">
+    <h1 id="page-title">Blog & News</h1>
+  </div>
+  {% paginate blog.articles by 5 %}
+  {% for article in blog.articles %}
+  <div class="blogs first clearfix">
+    <article class="blogs-item">
+      <div class="blogs-image">
+        <a href="{{article.url}}"><img src="{{ article.excerpt }}" class="img-responsive"></a>
+      </div>
+      <div class="h1">
+        <a href="{{ article.url }}">
+          <i class="fa fa-caret-right"></i>
+          <span id="josephin">
+            {{article.title}}
+          </span>
+        </a>
+      </div>
+      <div class="intro">{{ article.content | strip_html | truncate: 250 }}</div>
+      <ul class="post list-inline">
+        <li class="date">{{ article.published_at | date: '%a, %B %d %Y' }}</li>
+        <li class="author">POST BY: <span>Blaine Bowen</span></li>
+        <li class="comment">
+          <a href="{{article.url}}#disqus_thread">
+            0 Comments
+          </a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </article>
+  </div>
+  {% endfor %}
+  <div class="pagination title-3 clearfix">
+    <br>
+    <div id="pagination" class="text-center">
+      {{ paginate | default_pagination }}
+    </div>
+  </div>
+  {% endpaginate %}
+
+
+
+
+</div>

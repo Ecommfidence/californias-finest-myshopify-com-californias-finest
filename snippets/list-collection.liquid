@@ -1,0 +1,54 @@
+
+        <header class="control-group clearfix">
+            <div class="wrapper-title">
+                <span class="title-3">COLLECTIONS</span>
+                <span class="line"></span>
+            </div>
+        </header>
+        <br>
+        
+        <div class="row rel hidden-xs">
+            {% for collection in collections limit:8 %}
+            <div id="arb" class="col-sm-8 text-center">
+                <div class="row">
+
+
+                    <div class="col-sm-24 text-center {% cycle '','','','right-none' %}">
+
+                        <a href="{{collection.url}}"><img src="{{ collection.image.src | collection_img_url: 'medium' }}" class="collection-image img-responsive"/></a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-24 text-center">
+                        <h2 class="text-center high"><a href="{{collection.url}}">{{collection.title}}</a></h2>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            <br>
+        </div>
+   <div class="home_products visible-xs">
+        <div class="row rel" id="prods">
+            {% for collection in collections limit:8 %}
+            <div id="arb" class="col-xs-24 text-center">
+                <div class="row">
+
+
+                    <div class="col-sm-24 text-center">
+
+                        <a href="{{collection.url}}"><img src="{{ collection.image.src | collection_img_url: 'medium' }}" class="collection-image img-responsive"/></a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-24 text-center product-border-bottom">
+                        <h2 class="text-center"><a href="{{collection.url}}">{{collection.title}}</a></h2>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>

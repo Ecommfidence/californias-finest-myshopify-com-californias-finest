@@ -1,0 +1,25 @@
+            <div class="home_products">
+              <div class="container">
+                <header class="control-group clearfix">
+                  <div class="wrapper-title">
+                    <span class="title-3">COLLECTIONS</span>
+                    <span class="line"></span>
+                  </div>
+                </header>
+                <br>
+
+                <div class="row">
+                  {% for collection in collections limit:8 %}
+                      <div class="col-sm-6 text-center">
+                        <img src="{{ collection.image.src | collection_img_url: 'medium' }}" class="collection-image"/>
+                        <h2 class="text-center"><a href="{{collection.url}}">{{collection.title}}</a></h2>
+                     </div>
+
+                  {% endfor %}
+                  <br>
+                </div>
+
+
+
+              </div>
+            </div>

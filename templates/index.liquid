@@ -1,0 +1,37 @@
+
+	{% include 'slider' %}
+
+	<div id="content">
+		<div class="content">
+			<div id="col-main" class="clearfix">
+        <section class="collection-index">
+          {% include 'collection-index' %}
+        </section>
+        <section class="parallax-index">
+          {% include 'parallax-index' %}
+        </section>
+        <section class="product-index">
+        {% include 'product-index' %}
+        </section>
+			</div>
+		</div>
+	</div>
+
+
+  <div id="bottom">
+    <div class="container">
+      <div id="bottom-content" class="row">
+        <div class="col-md-24">
+          <section>
+            {% include 'newsletter' %}
+          </section>
+          <div class="padding-btm35"></div>
+          <div class="clearfix"></div>
+            {% include 'pay-it-forward' %}
+          <div class="clearfix"></div>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>

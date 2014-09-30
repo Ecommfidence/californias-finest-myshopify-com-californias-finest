@@ -1,0 +1,87 @@
+
+{% paginate search.results by 12 %}
+    <section id="page-title">
+    <div id="searchpage" class="container">
+        <div class="text-center uppercase">
+            <h1 class="text-center font30 blue">SEARCH</h1>
+        </div>
+
+        <div class="text-center search-input">
+            <form action="/search" method="get" class="padding-bottom48" role="search">
+
+                <input type="text" name="q" value="{{ search.terms | escape }}" />
+
+                <input type="submit" value="Search" class="button subHeadBtn" />
+
+            </form>
+        </div>
+
+        {% if search.performed %}
+
+            {% if search.results_count == 0 %}
+                <div class="container">
+                    <br>
+                    <div class="col-sm-24 text-center">
+                        <h2>Your search for "{{ search.terms }}" did not yield any results.</h2>
+                        <br>
+                    </div>
+                </div>
+
+            {% else %}
+
+            {% for item in search.results %}
+
+                <!-- <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-21"> -->
+                        <div class="col-sm-8">
+                            <div class="search-result clearfix">
+                                <h2 class="line-eq text-center">{{ item.title | link_to: item.url }}</h2>
+
+                                {% if item.featured_image %}
+
+                                <div class="col-sm-24">
+                                    <div class="left text-center">
+                                        <a href="{{ item.url }}" title="{{ item.title | escape }}">
+                                            {{ item.featured_image.src | product_img_url: 'medium' | img_tag: item.featured_image.alt, 'img-thumbnail' }}
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <div class="col-sm-24">
+                                    <div class="search-text left">{{ item.content | strip_html | truncatewords: 12 | highlight: search.terms }}...</div>
+                                    </div>
+
+                                <br>
+
+                                {% elsif item.excerpt %}
+
+                                <div class="col-sm-24">
+                                    <img src="{{item.excerpt}}" class="img-responsive"/>
+                                </div>
+                                <div class="col-sm-24">{{ item.content | strip_html | truncatewords: 20 | highlight: search.terms }}
+                                </div>
+
+                                {% endif %}
+                            </div>
+                        </div>
+            {% endfor %}
+
+            {% endif %}
+
+        {% endif %}
+
+        {% if paginate.pages > 1 %}
+
+            <div class="pagination">
+                {{ paginate | default_pagination }}
+            </div>
+
+        {% endif %}
+
+    </div>
+    </section>
+
+{% endpaginate %}

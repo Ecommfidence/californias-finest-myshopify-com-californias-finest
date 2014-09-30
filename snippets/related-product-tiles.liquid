@@ -1,0 +1,24 @@
+
+                          <li class="row-left">
+                            <a href="{{product.url}}" class="hoverBorder">
+                              <span class="hoverBorderWrapper">
+                                <img src="{{product.featured_image | product_img_url: 'medium'}}" class="image-fly img-responsive" alt="{{product.title}}">
+                              </span>
+                              <!-- <div class="product-ajax-cart hidden-xs hidden-sm">
+                                <span class="overlay_mask"></span>
+                                <div data-href="./ajax/_product-qs.html" data-toggle="modal" data-target="#quick-shop-modal" class="btn btn-1 small quick_shop">
+                                  Quickshop
+                                </div>
+                              </div> -->
+                            </a>
+                          </li>
+                          <li class="row-right text-left parent-fly animMix">
+                            <a class="title-5" href="{{product.url}}">{{product.title}}<i class="fa fa-caret-right"></i></a>
+                            <div class="product-price">
+                              <span class="price">
+                                <span class="money">{{product.price | money}}</span>
+                              </span>
+                            </div>
+                            <input type="hidden" name="quantity" value="1">
+                            <!-- <button class="btn add-to-cart" data-parent=".parent-fly" type="submit" name="add"><i class="fa fa-plus"></i>Add to Cart</button> -->
+                          </li>

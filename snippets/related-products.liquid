@@ -1,0 +1,68 @@
+
+
+
+            <div id="tabs-container" class="visible-md visible-lg">
+              <ul id="tabs-content" class="list-unstyled">
+                <li>
+                  <h2 class="active">
+                    <a class="head_tab1 head_tabs" href="#content_tab1" data-src=".head_tab1">
+                      Related Products
+                    </a>
+                  </h2>
+                </li>
+              </ul>
+            </div>
+            <div id="tabs_content_container" class="clearfix">
+              <div id="content_tab1" class="content_tabs">
+                <section class="rel-container clearfix">
+                  <div class="title-1 hidden-md hidden-lg">
+                    <span class="content-title">Related product</span>
+                    <span class="sub-title"></span>
+                  </div>
+                  <div class="prod-related-wrapper">
+                    <div class="prod-related clearfix">
+
+                  {% if product.tags contains 'Bracelet' %}
+                    {% for product in collections.gemstone-bracelets.products offset:2 limit:8 %}
+                    <div class="element ">
+                        <ul class="row-container list-unstyled clearfix">
+                        {% include 'related-product-tiles' %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                  {% elsif product.tags contains 'Cuff' %}
+                    {% for product in collections.bowen-fine-jewelry-collection.products offset:2 limit:8 %}
+                      <div class="element ">
+                        <ul class="row-container list-unstyled clearfix">
+                         {% include 'related-product-tiles' %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                  {% elsif product.tags contains 'Necklace' %}
+                    {% for product in collections.staff-picks.products offset:2 limit:8 %}
+                      <div class="element ">
+                        <ul class="row-container list-unstyled clearfix">
+                         {% include 'related-product-tiles' %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                  {% elsif product.tags contains 'Pendant' %}
+                    {% for product in collections.pay-it-forward-collection.products offset:2 limit:8 %}
+                      <div class="element ">
+                        <ul class="row-container list-unstyled clearfix">
+                         {% include 'related-product-tiles' %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                  {% endif %}
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>

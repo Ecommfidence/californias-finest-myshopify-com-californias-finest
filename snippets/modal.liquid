@@ -1,0 +1,115 @@
+<div ng-controller="modalCtrl">
+   <a class="btn btn-1 small" ng-click="open('lg')">Quickshop</a>
+    <div class="row">
+      <script type="text/ng-template" id="ModalContent.html">
+        
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <i class="close fa fa-times btooltip" ng-click="cancel()" data-placement="top" title="Close" aria-hidden="true"></i>
+        <h2 id="quick-shop-title">{{product.title}}</h2>
+      </div>
+      <div class="modal-body">
+        <div class="quick-shop-modal-bg"></div>
+        <div class="row">
+          <div class="col-md-12 product-image">
+            <div id="quick-shop-image" class="product-image-wrapper">
+                <a target="_blank" href="{{product.featured_image | product_img_url: 'original'}}" alt="" class="main-image elevatezoom fancybox">
+                      <img itemprop="image" class="img-zoom img-responsive image-fly" src="{{product.featured_image | product_img_url: 'original'}}" data-zoom-image="{{product.featured_image | product_img_url: 'original'}}" alt="" />
+                      <span class="main-image-bg"></span>
+                    </a>
+             <div id="gallery_main_qs" class="product-image-thumb scroll scroll-mini">
+                {% if product.images.size > 1%}
+                      {% for image in product.images %}
+                      <a target="_blank" class="image-thumb" data-image="{{image | product_img_url: 'original'}}" data-zoom-image="{{image | product_img_url: 'original'}}" href="{{image | product_img_url: 'original'}}" alt="">
+                        <img class="img-thumbnail" src="{{image | product_img_url: 'original'}}" alt="" />
+                      </a>
+                      {% endfor %}
+                      {% endif %}
+                
+              </div>
+            </div>
+          </div>
+          <div id="product-information" class="col-md-12 product-information">
+                  <div id="product-header" class="clearfix">
+                    <div class="relative">
+                      <ul class="list-unstyled">
+                        <li class="vendor">
+                          <span>Product Category: {{product.collections | limit:1}}</span>
+
+                        </li>
+                        <li class="type">
+                          <span>Product Type: {{product.type}}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                      <meta itemprop="priceCurrency" content="USD">
+
+
+                      <form action="/cart/add" method="post" class="variants" id="product-actions">
+                        <div id="product-actions-175388197" class="options clearfix">
+                          <div class="variants-wrapper clearfix">
+                            <div {% if hide_default_title %} style="display:none"{% endif %} class="selector-wrapper clearfix">
+                              <label for="product-select-175388197-option-0">Styles</label>
+                              <div class="wrapper">
+                                <select class="single-option-selector col-md-12" name="id" id="product-select-175388197-option-0" style="z-index:1000;position:absolute;opacity:0;font-size:13px">
+
+                                  {% for variant in product.variants %}
+                                  <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                                  {% endfor %}
+                                </select>
+                                <button type="button" class="custom-style-select-box btn-block changed" style="display:block;overflow:hidden"><span class="custom-style-select-box-inner" style="width:288px;display:inline-block">Styles</span></button>
+                                <i class="fa fa-caret-down"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="quantity-wrapper clearfix">
+                            <label class="wrapper-title">Quantity</label>
+                            <div class="wrapper pos-relative">
+
+
+                              <input id="quantity" type="text" name="quantity" value="1" class="btn-block item-quantity">
+                              <span class="qty-group">
+                                <span class="qty-wrapper">
+                                  <span class="qty-up btooltip" data-toggle="tooltip" data-placement="top" title="" data-src="#quantity" data-original-title="Increase">
+                                    <i class="fa fa-plus"></i>
+                                  </span>
+                                  <span class="qty-down btooltip" data-toggle="tooltip" data-placement="top" title="" data-src="#quantity" data-original-title="Decrease">
+                                    <i class="fa fa-minus"></i>
+                                  </span>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                          <div id="purchase-175388197">
+                            <div class="detail-price" itemprop="price"><span class="price"><span class="money">{{ product.price_min | money }}{% if product.price_min < product.compare_at_price_min %} <del>{{ product.compare_at_price_min | money }}</del>{% endif %}</span></span></div>
+                          </div>
+
+                          <div class="others-bottom">
+                            {% unless product.available %}
+                              <p>Sold Out</p>
+                            {% else %}
+                            <button id="add-to-cart" class="btn add-to-cart" data-parent=".product-information" type="submit" name="add"><i class="fa fa-plus"></i>Add to Cart</button>
+                            {% endunless %}
+                          </div>
+
+                          <div class="sharing clearfix">
+
+                          
+
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      </script>
+  </div>
+</div>

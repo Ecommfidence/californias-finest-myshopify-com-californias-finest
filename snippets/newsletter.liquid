@@ -1,0 +1,38 @@
+<div id="widget-newsletter">
+    <div class="row">
+    <div class="widget-wrapper text-center">
+
+
+    {% form 'customer' %}
+
+  {% if form.posted_successfully? %}
+   <script type="text/javascript" charset="utf-8">
+        window.location = '#mailing-list-success';
+   </script>
+    <p id="mailing-list-success">Thanks for signing up!</p>
+  {% else %}
+            <ul class="list-inline newsletter">
+                <li class="" >
+                    <h2 class="purple">Sign up for newsletter</h2>
+                </li>
+                <li class="" >
+                    <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+                    <input class="form-control" type="email" placeholder="enter your email ..." name="newsletter[email]" id="email-input">
+                </li>
+                <li class="" >
+                    <button class="btn btooltip btn-4" data-toggle="tooltip" data-placement="bottom" type="submit" title="" data-original-title="Subscribe"><i class="fa fa-envelope fa-2x"></i></button>
+                </li>
+                <li class="" >
+                    <a class="btn hidden-xs" href="/blogs/News"><h2 class="purple">GO TO OUR BLOG</h2></a>
+                </li>
+            </ul>
+
+  {% endif %}
+
+{% endform %}
+
+
+
+    </div>
+    </div>
+</div>

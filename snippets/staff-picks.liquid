@@ -1,0 +1,79 @@
+            <div class="home_products">
+              <div class="container">
+                <header class="control-group clearfix">
+                  <div class="wrapper-title">
+                    <span class="title-3">STAFF PICKS</span>
+                    <span class="line"></span>
+                  </div>
+                </header>
+                <br>
+
+                <div class="row hidden-xs">
+                  {% for product in collections.staff-picks.products limit:6 %}
+                      <div class="col-sm-4 text-center">
+                        <a href="{{product.url}}"> <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="" class="img-responsive"/></a>
+                         <br>
+                  <div class="hidden-xs">
+                    <div class="row">
+                        <div class="col-sm-23 col-sm-offset-1">
+                          <br>
+                            <p class="text-center"><a href="{{product.url}}">{{product.title}} <i class="fa fa-caret-right"></i></a></p>
+                            {% if product.tags contains 'sale' %}
+                            <p class="shopPrice text-center">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                            {% else %}
+                            <p class="shopPrice text-center"> {{ product.price | money }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-xs">
+                    <div class="row">
+                        <div class="col-sm-23 col-sm-offset-1">
+                            <p class="text-center"><a href="{{product.url}}">{{product.title}} <i class="fa fa-caret-right"></i></a></p>
+                            {% if product.tags contains 'sale' %}
+                            <p class="shopPrice text-center">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                            {% else %}
+                            <p class="shopPrice text-center"> {{ product.price | money }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              </div>
+                  {% endfor %}
+                  <br>
+              </div>
+                <div class="row visible-xs" id="staff">
+                  {% for product in collections.staff-picks.products limit:12 %}
+                      <div class="col-sm-4 text-center">
+                        <a href="{{product.url}}"> <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="" class="img-responsive"/></a>
+                         <br>
+                  <div class="hidden-xs">
+                    <div class="row">
+                        <div class="col-sm-23 col-sm-offset-1">
+                            <p class="text-left"><a href="{{product.url}}">{{product.title}} <i class="fa fa-caret-right"></i></a></p>
+                            {% if product.tags contains 'sale' %}
+                            <p class="shopPrice text-left">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                            {% else %}
+                            <p class="shopPrice text-left"> {{ product.price | money }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-xs">
+                    <div class="row">
+                        <div class="col-sm-23 col-sm-offset-1">
+                            <p class="text-center"><a href="{{product.url}}">{{product.title}} <i class="fa fa-caret-right"></i></a></p>
+                            {% if product.tags contains 'sale' %}
+                            <p class="shopPrice text-center">{{ product.price | money }}{% if product.compare_at_price_max > product.price %} <span class="old-price">{{ product.compare_at_price_max | money }}</span>{% endif %}</p>
+                            {% else %}
+                            <p class="shopPrice text-center"> {{ product.price | money }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              </div>
+                  {% endfor %}
+                  <br>
+              </div>
+            </div>
+          </div>
